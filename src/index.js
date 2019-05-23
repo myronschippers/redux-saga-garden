@@ -1,28 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import store from './redux/store';
 
 import App from './components/App/App';
-
-// this startingPlantArray should eventually be removed
-const startingPlantArray = [
-  { id: 1, name: 'Rose' },
-  { id: 2, name: 'Tulip' },
-  { id: 3, name: 'Oak' }
-];
-
-const plantList = (state = startingPlantArray, action) => {
-  switch (action.type) {
-    case 'ADD_PLANT':
-      return [ ...state, action.payload ]
-    default:
-      return state;
-  }
-};
-
-const store = createStore(
-  combineReducers({ plantList }),
-);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('react-root'));
