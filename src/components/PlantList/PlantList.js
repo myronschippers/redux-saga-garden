@@ -19,7 +19,6 @@ class PlantList extends Component {
         return (
             <div>
                 <h3>This is the plant list</h3>
-                <pre>{JSON.stringify(this.props.reduxState)}</pre>
 
                 <div>
                     {plantElements}

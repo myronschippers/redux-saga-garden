@@ -1,9 +1,9 @@
 import { put } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* postPlant(action) {
+function* deletePlant(action) {
     try {
-        yield axios.post('/api/plant', action.payload);
+        yield axios.delete(`/api/plant?id=${action.payload}`);
         yield put({
             type: 'GET_PLANTS',
         });
@@ -12,4 +12,4 @@ function* postPlant(action) {
     }
 }
 
-export default postPlant;
+export default deletePlant;

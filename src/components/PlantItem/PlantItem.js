@@ -5,6 +5,10 @@ import mapStateToProps from '../../modules/mapStateToProps';
 class PlantList extends Component {
     handlerDeletePlant = (event) => {
         console.log('delete plant');
+        this.props.dispatch({
+            type: 'DELETE_PLANT',
+            payload: this.props.plant.id,
+        });
     }
 
     render() {
