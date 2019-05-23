@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../modules/mapStateToProps';
+import TextField from '@material-ui/core/TextField';
 
 class NewPlantForm extends Component {
     state = {
@@ -47,12 +48,13 @@ class NewPlantForm extends Component {
             <div>
                 <h3>This is the form</h3>
                 <form onSubmit={this.addNewPlant}>
-                    <input
-                        type="text"
+                    <TextField
+                        label="Name"
                         data-key="name"
-                        placeholder="Name"
                         value={this.state.newPlant.name}
                         onChange={this.handleFieldChange}
+                        margin="none"
+                        variant="outlined"
                     />
                     <input
                         type="text"
