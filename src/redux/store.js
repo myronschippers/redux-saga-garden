@@ -1,27 +1,18 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
+import createSagaMiddleware from  'redux-saga';
+import rootSaga from './rootSaga';
+import * as allReducers from './reducers/all.reducer.js';
 
-// this startingPlantArray should eventually be removed
-const startingPlantArray = [
-    { id: 1, name: 'Rose' },
-    { id: 2, name: 'Tulip' },
-    { id: 3, name: 'Oak' }
-];
-  
-const plantList = (state = startingPlantArray, action) => {
-    switch (action.type) {
-        case 'ADD_PLANT':
-            return [ ...state, action.payload ]
-        default:
-            return state;
-    }
-};
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
     combineReducers({
-        plantList,
+        ...allReducers,
     }),
-    applyMiddleware(logger),
+    applyMiddleware(sagaMiddleware, logger),
 );
+
+sagaMiddleware.run(rootSaga);
 
 export default store;
