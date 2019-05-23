@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../modules/mapStateToProps';
+import PlantItem from '../PlantItem/PlantItem';
 
 class PlantList extends Component {
     componentDidMount() {
@@ -11,10 +12,18 @@ class PlantList extends Component {
     }
 
     render() {
+        const plantElements = this.props.reduxState.plantList.map((plant, plantIndex) => {
+            return <PlantItem key={plantIndex} plant={plant} />
+        });
+
         return (
             <div>
                 <h3>This is the plant list</h3>
                 <pre>{JSON.stringify(this.props.reduxState)}</pre>
+
+                <div>
+                    {plantElements}
+                </div>
             </div>
         );
     }
