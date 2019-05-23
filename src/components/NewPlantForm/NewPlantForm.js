@@ -46,7 +46,6 @@ class NewPlantForm extends Component {
         return (
             <div>
                 <h3>This is the form</h3>
-                <pre>{JSON.stringify(this.state)}</pre>
                 <form onSubmit={this.addNewPlant}>
                     <input
                         type="text"
