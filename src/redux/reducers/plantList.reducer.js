@@ -8,7 +8,9 @@ const startingPlantArray = [
 const plantList = (state = startingPlantArray, action) => {
     switch (action.type) {
         case 'ADD_PLANT':
-            return [ ...state, action.payload ]
+            return [ ...state, action.payload ];
+        case 'NEW_PLANTS_LIST':
+            return [ ...action.payload ];
         default:
             return state;
     }
