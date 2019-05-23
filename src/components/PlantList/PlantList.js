@@ -5,6 +5,9 @@ import mapStateToProps from '../../modules/mapStateToProps';
 class PlantList extends Component {
     componentDidMount() {
         // use component did mount to dispatch an action to request the plantList from the API
+        this.props.dispatch({
+            type: 'GET_PLANTS',
+        });
     }
 
     render() {

@@ -1,5 +1,7 @@
 import getPlants from './getPlants.saga';
 
-export const allSagas = {
+const allSagas = {
     'GET_PLANTS': getPlants,
 };
+
+export default allSagas;
