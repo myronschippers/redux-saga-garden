@@ -14,7 +14,7 @@ class App extends Component {
           <h1>Welcome to your garden!</h1>
         </header>
 
-        <Container maxWidth="sm">
+        <Container maxWidth="lg">
           <Garden />
         </Container>
       </div>
